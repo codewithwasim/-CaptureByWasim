@@ -1,0 +1,252 @@
+html {
+  scroll-behavior: smooth;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+  padding: 10px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 1000;
+  border-bottom: 1px solid #eee;
+}
+.logo {
+  font-weight: 900;
+  font-size: 1.2rem;
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+.nav-links li {
+  margin-left: 20px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: #000;
+  transition: 0.3s;
+}
+
+/* Hero */
+.hero {
+  padding: 0 5%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+.hero-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+.hero-text h1 {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -3px;
+  margin-bottom: 20px;
+}
+.hero-text p {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 30px;
+  max-width: 450px;
+}
+.btn-main {
+  display: inline-block;
+  padding: 14px 30px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+/* Profile Pic */
+.profile-pic {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.1));
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+/* Gallery - Stable Grid */
+.gallery {
+  padding: 60px 5%;
+  background: #fafafa;
+}
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+.film-reel {
+  background: #111;
+  padding: 20px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.img-box {
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+}
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+  transition: 0.5s;
+}
+.film-reel:hover img {
+  opacity: 1;
+  transform: scale(1.03);
+}
+.holes {
+  height: 10px;
+  background-image: radial-gradient(circle, #000 50%, transparent 55%);
+  background-size: 20px 100%;
+  margin: 8px 0;
+}
+.reel-label {
+  color: #555;
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+/* Footer */
+.footer {
+  padding: 30px 5%;
+  background: #111;
+  color: #fff;
+}
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.footer-socials {
+  display: flex;
+  gap: 10px;
+}
+.social-icon {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 6px 12px;
+  border-radius: 4px;
+  color: #fff;
+  transition: 0.3s;
+}
+.fb {
+  background: #1877f2;
+}
+.tiktok {
+  background: #000;
+  border: 1px solid #ff0050;
+}
+.youtube {
+  background: #ff0000;
+}
+.insta {
+  background: linear-gradient(45deg, #f09433, #dc2743, #bc1888);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+  .nav-links {
+    position: fixed;
+    left: -100%;
+    top: 50px;
+    flex-direction: column;
+    background: #fff;
+    width: 100%;
+    text-align: center;
+    transition: 0.4s;
+  }
+  .nav-links.active {
+    left: 0;
+  }
+  .hero-container {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+}
+
+/* Lightbox Container */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100vw;  /* Puri screen ki width */
+    height: 100vh; /* Puri screen ki height */
+    background-color: rgba(0, 0, 0, 0.95); /* Thoda dark background */
+    justify-content: center;
+    align-items: center;
+    cursor: zoom-out;
+}
+
+/* Lightbox Image - Full Screen Fix */
+#lightbox-img {
+    width: 100%;   /* Image ki width puri screen par */
+    height: 100%;  /* Image ki height puri screen par */
+    object-fit: contain; /* Isse image kharab nahi hogi (aspect ratio sahi rahega) */
+    display: block;
+}
+
+/* Close Button styling */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10000;
+}
